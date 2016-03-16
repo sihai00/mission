@@ -29,10 +29,16 @@ $(function(){
 	showTool($(".title-tool li:nth-child(4)"),3);
 	showChoose($(".title-top:nth-child(2) .title-btn button"),2);
 	showChoose($(".title-top:nth-child(3) .title-btn button"),3);
-	
+
+	var timeone = 0,
+		timetwo = 0;
 	$(".myIcon-refresh").on('click',function(event){
-		$(".left-category").fadeOut(0).delay(2000).fadeIn(200);
-		$(".spinner").fadeIn(0).delay(2000).fadeOut(0);
+		timeone = (new Date()).getTime();
+		if (timeone-timetwo>2000) {
+			$(".left-category").fadeOut(0).delay(2000).fadeIn(200);
+			$(".spinner").fadeIn(0).delay(2000).fadeOut(0);
+		}
+		timetwo = (new Date()).getTime();
 	});
 	
 	function showCollectionBox(){
