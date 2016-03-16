@@ -1,0 +1,456 @@
+@title-height: 40px;
+@color-gray: #ddd;
+@color-active: #D4C3A5;
+@right-content: #F4F2E6;
+@alert-bacground: #D4C5A5;
+@alert-span-bac: #E8D8B7;
+html{
+	font-style: 62.5%;
+}
+body{
+	font-family:"Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei",sans-serif;
+}
+a,a:hover,a:link,a:focus{
+	text-decoration: none;
+	color: #000;
+}
+.container-fluid{
+	position: absolute;
+    height: 100%;
+    width: 100%;
+}
+//圆点
+.category-dot{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	vertical-align: text-top;
+}
+.box-table{
+	margin: 0;
+	margin-top: -3px;
+	background-color: #fff;
+    border-radius: 6px;
+    border-top: 3px solid @alert-bacground;
+	tbody tr td,thead tr th{
+		// border-bottom: none;
+		border: none;
+		vertical-align: middle;
+		&:first-child{
+			text-align: center;
+			width: 40px;
+			position: relative;
+			.category-dot span{
+				font-size: 1px;
+			}
+			input{
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 1;
+				opacity: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+			}
+		}
+	}
+	thead tr th{
+		height: 40px;
+		white-space:nowrap;
+	}
+	tbody tr td{
+		height: 40px;
+		img{
+			width: 20px;
+			height: 20px;
+		}
+		@media (max-width: 767px){
+			height: auto;
+		}
+	}
+	tbody tr td:last-child{
+		white-space:nowrap;
+	}
+	input,span{
+		display: none;
+	}
+}
+.square-check{
+	tbody .category-dot{
+		width: 22px;
+		height: 100%;
+		max-height: 80px;
+		border-radius: 4px;
+		background-color: #8ABAE4;
+		span{
+			display: inline-block;
+			position: relative;
+    		top: 50%;
+    		transform: translateY(-90%);
+			color: #fff;
+			&:before{
+				content: "\e072";
+			}
+		}
+	}
+	tr{
+		td:first-child input{
+			&:hover{
+				cursor: pointer;
+			}
+			display: inline-block;
+			// 选中后状态
+			&:checked + .category-dot {
+				background-color: #999999;
+				span:before{
+					content: "\e073";
+				}
+			}
+		}
+	}
+}
+.dot-check{
+	.category-dot{
+		border: 1px solid #ddd;
+		background-color: #fff;
+		width: 22px;
+		height: 22px;
+	}
+	tr{
+		th:first-child input,td:first-child input{
+			&:hover{
+				cursor: pointer;
+			}
+			display: inline-block;
+			// 选中后状态
+			&:checked + .category-dot{
+				background-color: #007AFF;
+				color: #fff;
+				span{
+					display: inline-block;
+				}
+			}
+			
+		}
+	}
+}
+.blue{
+	background-color: #43AEF4;
+}
+.green{
+	background-color: #84CF3C;
+}
+.yellow{
+	background-color: #F3C531;
+}
+.orange{
+	background-color: #F28931;
+}
+.red{
+	background-color: #ED546E;
+}
+
+.container-fluid{
+	padding: 0;
+	.box-left{
+		padding: 0;
+		height: 100%;
+	}
+}
+.modal{
+	.modal-header{
+		text-align: center;
+		background-color: #337AB7;
+		color: #fff;
+	}
+	.form-group label{
+		line-height: 34px;
+		text-align: center;
+		margin-bottom: 0;
+		padding: 0;
+	}
+	.modal-footer button{
+		width: 49%;
+		float: left;
+	}
+}
+.box-left{
+	background-color: #F1EFE9;
+	position: fixed;
+	width: 250px;
+	border-right: 1px solid @color-gray;
+	z-index: 2;
+	@media (max-width: 767px){
+		width: 65%;
+	}
+	.left-title{
+		font-size: 1.6rem;
+		padding-left: 20px;
+		border-bottom: 1px solid @color-gray;
+		line-height: 50px;
+		span{
+			color: #796E6E;
+			text-align: center;
+			width: 40px;
+			line-height: inherit;
+			&:hover{
+				cursor: pointer;
+			}
+		}
+	}
+	.left-category{
+		font-size: 1.56rem;
+		ul {
+			padding-left: 0;
+			li{
+				&.active{
+					background-color: @color-active;
+				}
+				line-height: 50px;
+				list-style: none;
+				position: relative;
+				border-bottom: 1px solid #ddd;
+				a{
+					padding-left: 20px;
+					width: 100%;
+					display: block;
+					.category-dot{
+						margin-right: 20px;
+					}
+					.category-num{
+						float: right;
+						display: block;
+						text-align: center;
+						height: 20px;
+						min-width: 20px;
+						line-height: 20px;
+						padding: 0px 3px;
+						margin-right: 10px;
+						margin-top: 15px;
+						background: #b90e00;
+						color: #fff;
+						font-size: 12px;
+						border-radius: 10px;
+					}
+					.category-line{
+						display: inline-block;
+						width: 4px; height: 100%;
+						position: absolute;
+						left: 0px; 
+						top:0px;
+					}
+				}
+			}
+		}
+	}
+}
+.box-right{
+	margin-left: 250px;
+    padding: 10px !important;
+	@media (max-width:767px){
+		margin-left: 0;
+		padding: 0!important;
+	}
+	background-color: @right-content;
+	.right-title{
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		position: fixed;
+		top: 10px;
+		right:10px;	
+		left: 260px;
+		z-index: 1;
+		background: rgba(0, 0, 0, 0.5);
+		font-size: 1.6rem;
+		height: 40px;
+		line-height: 40px;
+		border-radius: 5px;
+		.title-top{
+			color: #FCF8E3;
+			&:nth-child(2),&:nth-child(3){
+				display: none;
+			}
+			.title-tool {
+				margin: 0;
+				li{
+					text-align: center;
+					width: 31%;
+					display: inline-block;
+					list-style: none;
+					&:hover{
+						cursor: pointer;
+					}
+					span{
+					    vertical-align: middle;
+						font-size: 1.5rem;
+					}
+				}
+			}
+			.title-tips{
+				text-align: center;
+			}
+			.title-btn{
+				text-align: right;
+				button{
+					width: 48%;
+					&:nth-child(3){
+						display: none;
+					}
+				}
+			}
+		}
+		@media (max-width:767px){
+			right: 0;
+			left: 0;
+			top: 0;
+			border-radius: 0;
+			.title-top{
+				.title-tips,.title-btn{
+					padding: 0 4px 0 0 ;
+				}
+				.title-tool li {
+					display: inline-block!important;
+					width: 25%;
+					text-align: center;
+				 	span{
+						font-size: 1.5rem;
+					}
+				}
+			}
+		}
+	}
+	.right-content{
+	    padding-top: 50px;
+		.box-table thead {
+			font-size: 1.6rem;
+		}
+		.alert{
+			border-radius: 0;
+			background-color: @alert-bacground;
+			color: #fff;
+			margin-bottom: 0;
+			height: 40px;
+			padding: 10px;
+			font-size: 1.4rem;
+			border-top-left-radius: 6px;
+			border-top-right-radius: 6px;
+			>span{
+				background-color: @alert-span-bac;
+				margin-right: 5px;
+				padding: 5px;
+				border-radius: 5px;
+			}
+			button {
+				right: 0;
+				span{
+					padding: 6px;
+					border-radius: 6px;
+					&:hover{
+						color: #fff;
+					}
+				}
+			}
+		}
+		background-color: @right-content;
+		@media (max-width: 767px){
+			padding-top: 40px;
+			.box-table,.box-table tbody,.box-table tbody tr{
+				display: block;
+			}
+			.box-table{
+				margin-top: 0;
+				border-top: none;
+				padding: 8px;
+				background-color: #F4F2E6;
+				tr {
+					font-size: 0;
+					border-bottom: 1px solid #ddd;
+					background-color: #ddd;
+					margin-bottom: 4px;
+					box-shadow: 1px 1px 2px #eee;
+					border-radius: 6px;
+					position: relative;
+					td{
+						border-top: none;
+						font-size: 1.4rem;
+						display: inline-block;
+						&:first-child{
+							position: absolute;
+							height: 100%;
+							width: 100%;
+							.category-dot{
+								position: absolute;
+								left: 9px;
+							}
+						}
+						&:nth-child(2),&:nth-child(3){
+							display: block;
+							padding-left: 38px;
+						}
+						&:nth-child(2){
+							font-weight: 700;
+						}
+						&:nth-child(3){
+							padding-top: 0;
+							padding-bottom: 3px;
+						}
+						&:nth-child(4){
+							margin-left: 25px;
+							width: 55%;
+						}
+						&:nth-child(5){
+							width: 35%;
+							text-align: center;
+						}
+					}
+				}
+			}
+			.alert{
+				border-radius: 0;
+			}
+		}
+	}
+}
+.spinner {
+  	margin: 100px auto 0;
+  	width: 100%;
+  	text-align: center;
+  	display: none;
+  	&>div{
+  		width: 20px;
+  		height: 20px;
+	  	background-color: #5AB1EF; 
+	  	border-radius: 100%;
+	  	display: inline-block;
+	  	-webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+	  	animation: bouncedelay 1.4s infinite ease-in-out;
+	  	-webkit-animation-fill-mode: both;
+	  	animation-fill-mode: both;
+  	}
+  	.bounce1 {
+	  	-webkit-animation-delay: -0.32s;
+	  	animation-delay: -0.32s;
+	}
+	.bounce2 {
+	 	-webkit-animation-delay: -0.16s;
+	  	animation-delay: -0.16s;
+	}
+}
+ 
+@-webkit-keyframes bouncedelay {
+  	0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  	40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bouncedelay {
+  	0%, 80%, 100% {transform: scale(0.0);
+    	-webkit-transform: scale(0.0);
+	} 40% { 
+    	transform: scale(1.0);
+    	-webkit-transform: scale(1.0);
+  	}
+}

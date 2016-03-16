@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>任务盒子</title>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/mission-box.css">
+	</head>
+	<body>
+		<div class="modal fade" id="senior-find" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">高级查询</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<div class="form-group">
+								<label class="col-sm-2 col-xs-2 control-label">关键字</label>
+								<div class="col-sm-10 col-xs-10">
+									<input type="email" class="form-control">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 col-xs-2 control-label">流程</label>
+								<div class="col-sm-10 col-xs-10">
+									<select class="form-control">
+										<option>全部</option>
+										<option>2</option>
+										<option>3</option>
+									</select>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary">查询</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="box-left hidden-xs">
+				<div class="left-title">我的任务盒子<span class="pull-right myIcon myIcon-refresh" aria-hidden="true"></span></div>
+				<div class="left-category">
+					<ul>
+						<li class="active"><a href="#"><span class="category-line blue"></span>收件箱<span class="category-num">5</span></a></li>
+						<li><a href="#"><span class="category-line green"></span>已参与<span class="category-num">2</span></a></li>
+						<li><a href="#"><span class="category-line yellow"></span>稿件<span class="category-num">99+</span></a></li>
+						<li><a href="#"><span class="category-line orange"></span>尚未指派<span class="category-num">10</span></a></li>
+						<li><a href="#"><span class="category-line red"></span>已暂停任务<span class="category-num">10</span></a></li>
+					</ul>
+				</div>
+				<div class="spinner">
+					<div class="bounce1"></div>
+					<div class="bounce2"></div>
+					<div class="bounce3"></div>
+				</div>
+			</div>
+			<div class="box-right">
+				<div class="right-title">
+					<div class="title-top clearfix">
+						<ul class="col-md-8 col-sm-8 pull-right col-lg-6 col-xs-12 title-tool">
+							<li class="collection-box visible-xs"><span class="myIcon myIcon-list" aria-hidden="true"></span> <span>收件箱</span></li><li data-toggle="modal" data-target="#senior-find"><span class="myIcon myIcon-search" aria-hidden="true"></span> <span>搜索</span></li><li><span class="myIcon myIcon-pause" aria-hidden="true"></span> <span>暂停</span></li><li><span class="myIcon myIcon-trash" aria-hidden="true"></span> <span>删除</span></li>
+						</ul>
+					</div>
+					<!-- 暂停任务 -->
+					<div class="title-top clearfix">
+						<div class="col-md-5 col-sm-5 col-lg-5 col-xs-5 title-tips">选择暂停的任务</div>
+						<div class="col-md-4 col-sm-4 col-lg-3 col-xs-7 pull-right title-btn">
+							<button class="btn btn-primary"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> 确定</button>
+						</div>
+					</div>
+					<!-- 删除任务 -->
+					<div class="title-top clearfix">
+						<div class="col-md-5 col-sm-5 col-lg-5 col-xs-5 title-tips">选择删除的任务</div>
+						<div class="col-md-4 col-sm-4 col-lg-3 col-xs-7 pull-right title-btn">
+							<button class="btn btn-primary"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> 确定</button>
+							<button class="btn btn-default"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> 取消</button>
+						</div>
+					</div>
+				</div>
+				<div class="right-content">
+					<div class="alert alert-dismissible" role="alert">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<span><strong>关键字</strong></span><span><strong>流程：</strong>请假</span>
+					</div>
+					<table class="table box-table table-striped">
+						<thead class="hidden-xs">
+							<tr>
+								<th>
+									<!-- <input type="checkbox" name="dot-check">
+									<div class="category-dot"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div> -->
+								</th>
+								<th>内容</th>
+								<th>任务</th>
+								<th>发起者</th>
+								<th>剩余时间</th>
+								<th>上次修改</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<input type="checkbox" name="dot-check">
+									<div class="category-dot blue"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+								</td>
+								<td>数码印刷登记</td>
+								<td>数码印刷申请</td>
+								<td><img src="img/touxiang.png" alt="头像">邓嘉敏(Shaly)</td>
+								<td>23小时</td>
+								<td class="hidden-xs">2016-01-02 12:12:12</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" name="dot-check">
+									<div class="category-dot"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+								</td>
+								<td>面试流程</td>
+								<td>通知人事部录用(张锦辉)</td>
+								<td><img src="img/touxiang.png" alt="头像">邓嘉敏(Shaly)</td>
+								<td>23小时</td>
+								<td class="hidden-xs">2016-01-02 12:12:12</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" name="dot-check">
+									<div class="category-dot"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+								</td>
+								<td>请假</td>
+								<td>事假结果通知</td>
+								<td><img src="img/touxiang.png" alt="头像">夏洛克(Sherlock)</td>
+								<td>23小时</td>
+								<td class="hidden-xs">2016-01-02 12:12:12</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" name="dot-check">
+									<div class="category-dot"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+								</td>
+								<td>请假</td>
+								<td>事假结果通知</td>
+								<td><img src="img/touxiang.png" alt="头像">夏洛克(Sherlock)</td>
+								<td>23小时</td>
+								<td class="hidden-xs">2016-01-02 12:12:12</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" name="dot-check">
+									<div class="category-dot"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+								</td>
+								<td>请假</td>
+								<td>事假结果通知</td>
+								<td><img src="img/touxiang.png" alt="头像">夏洛克(Sherlock)</td>
+								<td>23小时</td>
+								<td class="hidden-xs">2016-01-02 12:12:12</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" name="dot-check">
+									<div class="category-dot"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+								</td>
+								<td>请假</td>
+								<td>事假结果通知</td>
+								<td><img src="img/touxiang.png" alt="头像">夏洛克(Sherlock)</td>
+								<td>23小时</td>
+								<td class="hidden-xs">2016-01-02 12:12:12</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" name="dot-check">
+									<div class="category-dot"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+								</td>
+								<td>请假</td>
+								<td>事假结果通知</td>
+								<td><img src="img/touxiang.png" alt="头像">夏洛克(Sherlock)</td>
+								<td>23小时</td>
+								<td class="hidden-xs">2016-01-02 12:12:12</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" name="dot-check">
+									<div class="category-dot"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+								</td>
+								<td>请假</td>
+								<td>事假结果通知</td>
+								<td><img src="img/touxiang.png" alt="头像">夏洛克(Sherlock)</td>
+								<td>23小时</td>
+								<td class="hidden-xs">2016-01-02 12:12:12</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" name="dot-check">
+									<div class="category-dot"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+								</td>
+								<td>请假</td>
+								<td>事假结果通知</td>
+								<td><img src="img/touxiang.png" alt="头像">夏洛克(Sherlock)</td>
+								<td>23小时</td>
+								<td class="hidden-xs">2016-01-02 12:12:12</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" name="dot-check">
+									<div class="category-dot"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+								</td>
+								<td>请假</td>
+								<td>事假结果通知</td>
+								<td><img src="img/touxiang.png" alt="头像">夏洛克(Sherlock)</td>
+								<td>23小时</td>
+								<td class="hidden-xs">2016-01-02 12:12:12</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" name="dot-check">
+									<div class="category-dot"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+								</td>
+								<td>请假</td>
+								<td>事假结果通知</td>
+								<td><img src="img/touxiang.png" alt="头像">夏洛克(Sherlock)</td>
+								<td>23小时</td>
+								<td class="hidden-xs">2016-01-02 12:12:12</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" name="dot-check">
+									<div class="category-dot"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+								</td>
+								<td>请假</td>
+								<td>事假结果通知</td>
+								<td><img src="img/touxiang.png" alt="头像">夏洛克(Sherlock)</td>
+								<td>23小时</td>
+								<td class="hidden-xs">2016-01-02 12:12:12</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" name="dot-check">
+									<div class="category-dot"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+								</td>
+								<td>请假</td>
+								<td>事假结果通知</td>
+								<td><img src="img/touxiang.png" alt="头像">夏洛克(Sherlock)</td>
+								<td>23小时</td>
+								<td class="hidden-xs">2016-01-02 12:12:12</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" name="dot-check">
+									<div class="category-dot"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+								</td>
+								<td>请假</td>
+								<td>事假结果通知</td>
+								<td><img src="img/touxiang.png" alt="头像">夏洛克(Sherlock)</td>
+								<td>23小时</td>
+								<td class="hidden-xs">2016-01-02 12:12:12</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" name="dot-check">
+									<div class="category-dot"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+								</td>
+								<td>请假</td>
+								<td>事假结果通知</td>
+								<td><img src="img/touxiang.png" alt="头像">夏洛克(Sherlock)</td>
+								<td>23小时</td>
+								<td class="hidden-xs">2016-01-02 12:12:12</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" name="dot-check">
+									<div class="category-dot"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+								</td>
+								<td>请假</td>
+								<td>事假结果通知</td>
+								<td><img src="img/touxiang.png" alt="头像">夏洛克(Sherlock)</td>
+								<td>23小时</td>
+								<td class="hidden-xs">2016-01-02 12:12:12</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="checkbox" name="dot-check">
+									<div class="category-dot"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+								</td>
+								<td>请假</td>
+								<td>事假结果通知</td>
+								<td><img src="img/touxiang.png" alt="头像">夏洛克(Sherlock)</td>
+								<td>23小时</td>
+								<td class="hidden-xs">2016-01-02 12:12:12</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/mission-box.js"></script>
+
+</html>
